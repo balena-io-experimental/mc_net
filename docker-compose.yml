@@ -1,0 +1,18 @@
+version: '2'
+services:
+  backend:
+    build: ./backend
+#    networks:
+#     foo:
+#       aliases:
+#         - webserver
+  frontend:
+   build: ./frontend
+   privileged: true
+   labels:
+     io.resin.features.kernel-modules: "true"
+     io.resin.features.firmware: "true"
+
+networks:
+ foo:
+   driver: "bridged"
